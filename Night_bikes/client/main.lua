@@ -118,15 +118,14 @@ AddEventHandler('night_rent:bmx', function(carros)
 end)
 
 RegisterNetEvent('Night:entregarcarro')
-AddEventHandler('Night:entregarcarro', function(carros)
-    local vehicle = carros.vehicle
+AddEventHandler('Night:entregarcarro', function()
     local xPlayer = ESX.GetPlayerData()
-    local bicis = GetVehiclePedIsIn(PlayerPedId(),true)
 
 
     notify('Gracias por regresar la bike!')
+    local bicis = GetVehiclePedIsIn(PlayerPedId(),true)
     NetworkFadeOutEntity(bicis, true,false)
-    wait(3000)
+    Citizen.Wait(2000)
     ESX.Game.DeleteVehicle(bicis)
       
 end)
